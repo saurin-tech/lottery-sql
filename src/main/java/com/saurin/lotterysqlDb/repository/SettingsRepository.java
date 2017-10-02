@@ -1,0 +1,22 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package com.saurin.lotterysqlDb.repository;
+
+import com.saurin.lotterysqlDb.entity.Settings;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
+
+/**
+ *
+ * @author saurin
+ */
+@Repository
+public interface SettingsRepository extends CrudRepository<Settings, Integer>{
+    Settings findByStoreName(String storeName);
+        
+}
