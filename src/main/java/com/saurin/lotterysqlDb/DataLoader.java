@@ -46,7 +46,7 @@ public class DataLoader implements CommandLineRunner{
         
         logger.info("Loading sample data in DataLoader....");
         
-        //settingsService.save(new Settings("test",3,4,true,"<YOUR EMAIL ADDRESS>"));
+        settingsService.save(new Settings("test",3,4,true,"<EMAIL>"));
         
         bookService.save(new Book("Game1", 101, 1001, 1, 299));
         bookService.save(new Book("Game2", 102, 1002, 2, 299));

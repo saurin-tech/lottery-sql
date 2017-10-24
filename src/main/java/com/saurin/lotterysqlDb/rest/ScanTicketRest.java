@@ -9,6 +9,7 @@ import com.saurin.lotterysqlDb.entity.ScanTicket;
 import com.saurin.lotterysqlDb.entity.Shift;
 import com.saurin.lotterysqlDb.repository.services.ScanTicketService;
 import java.util.List;
+import jersey.repackaged.com.google.common.base.Preconditions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,6 +29,7 @@ public class ScanTicketRest {
     
     @RequestMapping(method = RequestMethod.POST, value="/openingticket")
     public ScanTicket save(@RequestBody ScanTicket scanTicket){
+        Preconditions.checkNotNull(scanTicket);
         return scanTicketService.save(scanTicket);
     }
     
@@ -39,6 +41,7 @@ public class ScanTicketRest {
     // Need to provide Book number and the closing ticket number
     @RequestMapping(method=RequestMethod.PUT, value="/closingticket")
     public ScanTicket update(@RequestBody ScanTicket scanTicket){
+        Preconditions.checkNotNull(scanTicket);
         System.out.println("====>>>>Printing out the Closing ticket number: " + scanTicket.getClosingTicketNumber());
         System.out.println("To String of update ScanTicket: " + scanTicket.toString());
         return scanTicketService.updateScanTicket(scanTicket);

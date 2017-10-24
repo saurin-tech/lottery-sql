@@ -7,6 +7,7 @@ package com.saurin.lotterysqlDb.rest;
 
 import com.saurin.lotterysqlDb.entity.Book;
 import com.saurin.lotterysqlDb.repository.services.BookService;
+import jersey.repackaged.com.google.common.base.Preconditions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,6 +27,7 @@ public class BookRest {
     
     @RequestMapping(method = RequestMethod.POST)
     public Book save(@RequestBody Book book){
+        Preconditions.checkNotNull(book);
         return bookService.save(book);
     }
 }
